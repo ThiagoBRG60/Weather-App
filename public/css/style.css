@@ -1,0 +1,273 @@
+main {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+section {
+   width: 100%;
+   height: 100%;
+   max-height: 550px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* warning card */
+
+.toast-card {
+   min-width: 360px;
+   max-width: 500px;
+   min-height: 60px;
+   max-height: 300px;
+   padding: 10px 0;
+   display: flex;
+   justify-content: space-between;
+   position: absolute;
+   top: -100%;
+   left: 50%;
+   transform: translate(-50%, 0);
+   border-radius: 5px;
+   overflow: hidden;
+   transition: 1s;
+   z-index: 10;
+}
+
+.toast-card.showCard {
+   top: 15px;
+}
+
+.toast-card p {
+   padding: 0 15px;
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   font-weight: 600;
+   color: var(--primary-color);
+   word-break: break-all;
+}
+
+.toast-card button {
+   padding: 0 15px;
+   border: 0;
+   border-left: 1px solid var(--primary-color);
+   color: var(--primary-color);
+   background-color: transparent;
+   cursor: pointer;
+}
+
+.toast-card button svg {
+   transition: 0.3s;
+}
+
+.toast-card button:hover svg {
+   fill: #000000a8;
+}
+
+.toast-card span {
+   width: 100%;
+   height: 3px;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   transition: 0.3s linear;
+   background-color: var(--primary-color);
+}
+
+/* warning card styles */
+
+.toast-card.isSuccess {
+   background-color: #38bb72;
+}
+
+.toast-card.isError {
+   background-color: #e94354;
+}
+
+/* weather picture card */
+
+.weather-picture-card {
+   width: 100%;
+   height: 100%;
+   max-width: 360px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 30px 25px;
+   border-radius: 20px;
+   position: relative;
+   overflow: hidden;
+   color: var(--primary-color);
+   background: var(--weather-picture-background);
+}
+
+.location-picture {
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: absolute;
+   opacity: 0.25;
+   background-size: cover;
+   box-shadow: inset 0 0 50px 25px #000000cc;
+}
+
+.weather-picture-card ul:nth-of-type(1), .weather-picture-card ul:nth-of-type(2) {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   z-index: 1;
+}
+
+.weather-picture-card ul:nth-of-type(1) li:nth-child(1) {
+   font-size: 30px;
+   font-weight: 600;
+   text-transform: capitalize;
+}
+
+.weather-picture-card ul:nth-of-type(1) li:nth-child(3) {
+   display: flex;
+   align-items: center;
+   margin-top: 5px;
+   font-size: 18px;
+   font-weight: 500;
+   text-transform: capitalize;
+}
+
+.weather-picture-card ul:nth-of-type(1) li:nth-child(3) i::before {
+   font-size: 20px;
+}
+
+.weather-picture-card ul:nth-of-type(2) li:nth-child(1) {
+   align-self: flex-start;
+}
+
+.weather-picture-card ul:nth-of-type(2) li:nth-child(1) img {
+   height: 100%;
+}
+
+.weather-picture-card ul:nth-of-type(2) li:nth-child(2) {
+   font-size: 35px;
+   font-weight: 600;
+}
+
+/* weather info card */
+
+.weather-info-card {
+   width: 100%;
+   max-width: 380px;
+   height: 80%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 30px;
+   border-radius: 0 20px 20px 0;
+   box-shadow: inset 10px 0 25px var(--weather-info-shadow);
+   background-color: var(--weather-info-background);
+}
+
+.weather-info-card ul {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   color: var(--primary-color);
+}
+
+.weather-info-card ul li {
+   display: flex;
+   justify-content: space-between;
+   font-size: 20px;
+}
+
+.weather-info-card ul li p {
+   font-weight: 600;
+   text-transform: uppercase;
+}
+
+.weather-info-card form {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.weather-info-card form input {
+   font-size: 18px;
+   padding: 5px 0;
+   color: var(--primary-color);
+   outline: 0;
+   border: 0;
+   border-bottom: 2px solid #ffffff50;
+   background-color: transparent;
+}
+
+.weather-info-card form input::placeholder {
+   color: #ffffff80;
+   font-weight: 600;
+}
+
+.weather-info-card form button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 500;
+   font-size: 16px;
+   padding: 10px 0;
+   color: var(--primary-color);
+   border: 0;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: 0.3s;
+   background: var(--weather-info-button-background);
+   position: relative;
+   overflow: hidden;
+}
+
+.weather-info-card form button::before {
+   content: "";
+   width: 10px;
+   height: 10px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transition: 0.3s;
+   transform: translate(-50%, -50%);
+   border-radius: inherit;
+   opacity: 0;
+   background: var(--weather-info-button-background);
+}
+
+.weather-info-card form button::after {
+   content: "";
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 100%;
+   border: 4px solid #ffffff80;
+   border-left-color: #ffffff;
+   opacity: 0;
+}
+
+/* weather info card button.isLoading */
+
+.weather-info-card form button.isLoading::before {
+   width: 100%;
+   height: 100%;
+   opacity: 1;
+}
+
+.weather-info-card form button.isLoading::after {
+   animation: showSpinner 0.5s forwards, spinner 0.8s 0.5s infinite linear;
+}
+
+.weather-info-card form button.isLoading {
+   cursor: not-allowed;
+}
+
+.weather-info-card form button:hover, .weather-info-card form button.isLoading {
+   opacity: 0.6;
+}

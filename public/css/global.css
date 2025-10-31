@@ -1,0 +1,22 @@
+:root {
+   --main-background: #343D4B;
+   --weather-picture-background: linear-gradient(to bottom, #8ED2DF, #4E5AB4);
+   --weather-info-background: #222831;
+   --weather-info-button-background: linear-gradient(to right, #8ED2DF, #4E5AB4);
+   --weather-info-shadow: rgba(0, 0, 0, 0.3);
+   --primary-color: #FFFFFF;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   list-style: none;
+   text-decoration: none;
+   font-family: Inter, "sans-serif";
+}
+
+body {
+   height: 100dvh;
+   background-color: var(--main-background);
+}

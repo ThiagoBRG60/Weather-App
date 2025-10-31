@@ -1,0 +1,232 @@
+@media (max-width: 1440px) {
+  section {
+    max-height: 500px;
+  }
+
+  /* weather info card */
+
+  .weather-info-card {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    max-height: 450px;
+  }
+
+  /* warning card */
+
+  .toast-card {
+    min-height: 55px;
+  }
+
+  /* weather picture card */
+
+  .weather-picture-card {
+    max-width: 320px;
+  }
+
+  /* weather info card */
+
+  .weather-info-card {
+    max-width: 340px;
+  }
+
+  .weather-info-card ul li {
+    font-size: 18px;
+  }
+
+  .weather-info-card form input {
+    font-size: 16px;
+  }
+
+  .weather-info-card form {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    max-height: 80%;
+    flex-direction: column;
+  }
+
+  /* warning card */
+
+  .toast-card.showCard {
+    top: 10px;
+  }
+
+  /* weather picture card */
+
+  .weather-picture-card {
+    max-width: 55%;
+    padding: 20px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(1) {
+    font-size: 25px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(3) {
+    font-size: 16px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(3) i::before {
+    font-size: 18px;
+  }
+
+  .weather-picture-card ul:nth-of-type(2) li:nth-child(1) img {
+    width: 50px;
+  }
+
+  .weather-picture-card ul:nth-of-type(2) li:nth-child(2) {
+    font-size: 30px;
+  }
+
+  /* weather info card */
+
+  .weather-info-card {
+    max-width: 45%;
+    height: 75%;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: inset 0 10px 25px var(--weather-info-shadow);
+  }
+
+  .weather-info-card ul li {
+    font-size: 16px;
+  }
+
+  .weather-info-card form button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    max-height: 80%;
+  }
+
+  /* weather picture card */
+
+  .weather-picture-card {
+    max-width: 70%;
+  }
+
+  /* weather info card */
+
+  .weather-info-card {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 430px) {
+  section {
+    max-height: 80%;
+  }
+
+  /* weather picture card */
+
+  .weather-picture-card {
+    max-width: 85%;
+  }
+
+  /* weather info card */
+
+  .weather-info-card {
+    max-width: 75%;
+    height: 70%;
+  }
+}
+
+@media (max-width: 375px) {
+  section {
+    max-height: 85%;
+  }
+
+  /* warning card */
+
+  .toast-card {
+    min-width: 340px;
+    min-height: 50px;
+  }
+
+  .toast-card p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .toast-card button {
+    padding: 0 10px;
+  }
+
+  /* weather picture card */
+
+  .weather-picture-card {
+    padding: 20px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(1) {
+    font-size: 20px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(2) {
+    font-size: 12px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(3) {
+    font-size: 14px;
+  }
+
+  .weather-picture-card ul:nth-of-type(1) li:nth-child(3) i::before {
+    font-size: 16px;
+  }
+
+  .weather-picture-card ul:nth-of-type(2) li:nth-child(1) img {
+    width: 45px;
+  }
+
+  .weather-picture-card ul:nth-of-type(2) li:nth-child(2) {
+    font-size: 25px;
+  }
+
+  .weather-picture-card ul:nth-of-type(2) li:nth-child(3) {
+    font-size: 14px;
+  }
+
+  /* weather info card */
+
+  .weather-info-card ul li {
+    font-size: 14px;
+  }
+
+  .weather-info-card form input {
+    font-size: 14px;
+  }
+
+  .weather-info-card form button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* warning card */
+
+  .toast-card {
+    min-width: 320px;
+  }
+}
+
+@media (max-width: 320px) {
+  /* warning card */
+
+  .toast-card {
+    min-width: 300px;
+  }
+}

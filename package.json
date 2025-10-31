@@ -1,0 +1,21 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "ThiagoBRG60",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "npm run build && node --env-file=.env src/server.js",
+      "build": "npm run build:html && npm run build:css && npm run build:js",
+      "build:html": "npx html-minifier-terser public/index.html -o dist/index.html --collapse-whitespace --remove-comments",
+      "build:css": "npx clean-css-cli -o dist/style.min.css public/css/*.css",
+      "build:js": "npx esbuild public/js/index.js --bundle --minify --outfile=dist/index.min.js --format=esm"
+  },
+  "dependencies": {
+    "@mudbill/duckduckgo-images-api": "github:ThiagoBRG60/duckduckgo-images-api#master",
+    "@vitalets/google-translate-api": "^9.2.1"
+  }
+}

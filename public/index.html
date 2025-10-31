@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Weather App é uma aplicação web moderna que exibe informações de clima em tempo real para qualquer local do mundo. Detecta automaticamente sua localização, traduz pesquisas, mostra imagens dinâmicas e detalhes meteorológicos como umidade, precipitação e velocidade do vento.">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+   <link rel="dns-prefetch" href="https://free.freeipapi.com">
+   <link rel="preconnect" href="https://free.freeipapi.com">
+   <link rel="stylesheet" href="./style.min.css">
+   <title>Weather App</title>
+</head>
+<body>
+   <main>
+      <div class="toast-card">
+         <p></p>
+         <button aria-label="close-toast-card">
+            <svg width="22px" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"/></svg>
+         </button>
+         <span></span>
+      </div>
+
+      <section>
+         <div class="weather-picture-card">
+            <div class="location-picture"></div>
+            <ul>
+               <li>Dia da semana</li>
+               <li>Data atual</li>
+               <li>
+                  <svg width="24px" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
+                  Local atual
+               </li>
+            </ul>
+
+            <ul>
+               <li>Ícone do clima atual</li>
+               <li>Clima atual</li>
+               <li>Condição do clima</li>
+            </ul>
+         </div>
+
+         <div class="weather-info-card">
+            <ul>
+               <li>
+                  <p>Precipitação:</p>
+                  <span>0 mm</span>
+               </li>
+               <li>
+                  <p>Umidade:</p>
+                  <span>0%</span>
+               </li>
+               <li>
+                  <p>Vento:</p>
+                  <span>0 km/h</span>
+               </li>
+            </ul>
+
+            <form>
+               <input type="text" name="location" id="location" placeholder="Digite um local aqui..." autocomplete="off">
+               <button type="submit" aria-label="change-location">
+                  <svg width="20px" height="20px" fill="#FFFFFF" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
+                  Mudar Local
+               </button>
+            </form>
+         </div>
+      </section>
+   </main>
+
+   <script type="module" src="./index.min.js"></script>
+</body>
+</html>
