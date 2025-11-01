@@ -15,7 +15,7 @@ section {
    justify-content: center;
 }
 
-/* warning card */
+/* toast card */
 
 .toast-card {
    min-width: 360px;
@@ -76,7 +76,11 @@ section {
    background-color: var(--primary-color);
 }
 
-/* warning card styles */
+.toast-card.showCard span {
+   animation: timerBar 3s 1s linear forwards;
+}
+
+/* toast card styles */
 
 .toast-card.isSuccess {
    background-color: #38bb72;

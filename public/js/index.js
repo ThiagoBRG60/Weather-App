@@ -1,6 +1,6 @@
 import { fetchData } from "./utils/fetchData.js"
 import { returnLocaleDate } from "./utils/returnLocaleDate.js"
-import { showToastCard } from "./components/toastCard.js"
+import { handleToastCard } from "./components/toastCard.js"
 import { handleChangeLocationButton } from "./components/changeLocationButton.js"
 
 const dateLis = document.querySelectorAll(".weather-picture-card ul:nth-of-type(1) li:not(li:nth-of-type(3))")
@@ -19,7 +19,7 @@ try {
    const {translatedText, currentWeather, imageURL} = await getLocationData({locationText: userLocation, translationConfig: {from: "en", to: "pt-BR"}})
    updateWeatherCard({locationName: translatedText, weatherInfo: currentWeather, locationImage: imageURL})
 } catch (error) {
-   showToastCard({status: "isError", message: "Houve um erro ao atualizar as informações. Tente novamente."})
+   handleToastCard({status: "isError", message: "Houve um erro ao atualizar as informações. Tente novamente."})
 }
 
 async function handleFormSubmit(e) {
@@ -32,16 +32,16 @@ async function handleFormSubmit(e) {
       try {
          const {currentWeather, imageURL} = await getLocationData({locationText: userInput})
          updateWeatherCard({locationName: userInput, weatherInfo: currentWeather, locationImage: imageURL})
-         showToastCard({status: "isSuccess", message: "Local atualizado com sucesso!"})
+         handleToastCard({status: "isSuccess", message: "Local atualizado com sucesso!"})
       } catch (error) {
-         showToastCard({status: "isError", message: "Houve um erro ao atualizar as informações. Tente novamente."})
+         handleToastCard({status: "isError", message: "Houve um erro ao atualizar as informações. Tente novamente."})
       } finally {
-         handleChangeLocationButton({className: "", disabled: false})
+         handleChangeLocationButton({className: "isDisabled"})
       }
 
       changeLocationInput.value = ""
    } else {
-      showToastCard({status: "isError", message: "Por favor, digite um local válido."})
+      handleToastCard({status: "isError", message: "Por favor, digite um local válido."})
       handleChangeLocationButton({className: "isDisabled", disabled: true})
    }
 }

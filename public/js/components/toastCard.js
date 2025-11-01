@@ -1,29 +1,29 @@
-import { sleep } from "../utils/sleep.js";
+import { sleep } from "../utils/sleep.js"
 import { handleChangeLocationButton } from "./changeLocationButton.js"
 
-const toastCard = document.querySelector(".toast-card");
-const toastCardText = toastCard.querySelector("p");
-const toastCardTimerBar = toastCard.querySelector("span");
-const toastCardCloseButton = toastCard.querySelector("button");
+const toastCard = document.querySelector(".toast-card")
+const toastCardText = toastCard.querySelector("p")
+const toastCardCloseButton = toastCard.querySelector("button")
+const toastCardSpan = toastCard.querySelector("span")
 
-let toastCardSeconds = 3;
-let toastCardQuotient = 100 / toastCardSeconds;
-let hideToastCard = false
 let toastCardStack = []
+let hideToastCard = false
 let isToastStackActive = false
+let sleepFn
 
 toastCardCloseButton.addEventListener("click", () => {
    hideToastCard = true
-   handleChangeLocationButton({className: "", disabled: false})
+   sleepFn.cancel()
 })
 
-async function showToastCard({status, message}) {
+async function handleToastCard({status, message}) {
    toastCardStack.push({status, message})
 
    if (toastCardStack.length > 0 && !isToastStackActive) {
       isToastStackActive = true
-
+      
       for (let i = 0; i < toastCardStack.length; i++) {
+         sleepFn = sleep(4)
          hideToastCard = false
 
          toastCard.className = `toast-card showCard ${toastCardStack[i].status}`
@@ -32,26 +32,17 @@ async function showToastCard({status, message}) {
             : `<svg width="24px" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320C528 205.1 434.9 112 320 112zM390.7 233.9C398.5 223.2 413.5 220.8 424.2 228.6C434.9 236.4 437.3 251.4 429.5 262.1L307.4 430.1C303.3 435.8 296.9 439.4 289.9 439.9C282.9 440.4 276 437.9 271.1 433L215.2 377.1C205.8 367.7 205.8 352.5 215.2 343.2C224.6 333.9 239.8 333.8 249.1 343.2L285.1 379.2L390.7 234z"/></svg>`
          } ${toastCardStack[i].message}`
 
+         await sleepFn.promise()
+         sleepFn = sleep(0.5)
+
+         toastCardSpan.style.width = "0%"
+         setTimeout(() => toastCard.className = `toast-card ${toastCardStack[i].status}`, hideToastCard ? 0 : 250)
          setTimeout(() => {
-            const intervaldId = setInterval(() => {
-               if (toastCardSeconds.toFixed(2) <= 0 || hideToastCard) {
-                  setTimeout(() => toastCard.className = `toast-card ${toastCardStack[i].status}`, hideToastCard ? 0 : 500)
-                  setTimeout(() => {
-                     toastCardTimerBar.style.width = "100%"
-                     toastCardSeconds = 3
-                     if (hideToastCard) sleepFn.cancel()
-                     if (!hideToastCard) handleChangeLocationButton({className: "", disabled: false})
-                  }, 1000)
-                  clearInterval(intervaldId)
-               }
-
-               toastCardSeconds -= 0.05
-               toastCardTimerBar.style.width = `${toastCardSeconds.toFixed(2) * toastCardQuotient}%`
-            }, 50)
-         }, 1000)
-
-         const sleepFn = sleep(toastCardSeconds + 2.5)
-         await sleepFn.promise
+            toastCardSpan.style.width = "100%"
+            handleChangeLocationButton({className: "", disabled: false})
+         }, 500)
+         
+         await sleepFn.promise()
       }
 
       isToastStackActive = false
@@ -59,4 +50,4 @@ async function showToastCard({status, message}) {
    }
 }
 
-export { showToastCard }
+export { handleToastCard }

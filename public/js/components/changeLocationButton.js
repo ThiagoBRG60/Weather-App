@@ -3,7 +3,7 @@ const changeLocationButton = changeLocationForm.querySelector("button")
 
 function handleChangeLocationButton({className, disabled}) {
    changeLocationButton.className = className
-   changeLocationButton.disabled = disabled
+   if (typeof disabled === "boolean") changeLocationButton.disabled = disabled
 }
 
 export { handleChangeLocationButton }

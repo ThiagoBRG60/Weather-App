@@ -1,10 +1,14 @@
 function sleep(seconds) {
-   let resolveFn
-   const timeoutId = setTimeout(() => resolveFn(), seconds * 1000)
-   const promise = new Promise((resolve) => resolveFn = resolve)
+   if (typeof seconds !== "number") throw new Error("Seconds must be a number.")
 
+   let resolveFn
+   let timeoutId
+   
    return {
-      promise,
+      promise: () => {
+         timeoutId = setTimeout(() => resolveFn(), seconds * 1000)
+         return new Promise(resolve => resolveFn = resolve)
+      },
       cancel: () => {
          clearTimeout(timeoutId)
          resolveFn()

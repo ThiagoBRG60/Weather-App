@@ -15,7 +15,7 @@
     max-height: 450px;
   }
 
-  /* warning card */
+  /* toast card */
 
   .toast-card {
     min-height: 55px;
@@ -52,7 +52,7 @@
     flex-direction: column;
   }
 
-  /* warning card */
+  /* toast card */
 
   .toast-card.showCard {
     top: 10px;
@@ -150,7 +150,7 @@
     max-height: 85%;
   }
 
-  /* warning card */
+  /* toast card */
 
   .toast-card {
     min-width: 340px;
@@ -216,7 +216,7 @@
 }
 
 @media (max-width: 360px) {
-  /* warning card */
+  /* toast card */
 
   .toast-card {
     min-width: 320px;
@@ -224,7 +224,7 @@
 }
 
 @media (max-width: 320px) {
-  /* warning card */
+  /* toast card */
 
   .toast-card {
     min-width: 300px;
