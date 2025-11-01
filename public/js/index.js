@@ -25,7 +25,7 @@ try {
 async function handleFormSubmit(e) {
    e.preventDefault()
    const userInput = changeLocationInput.value.trim()
-
+   
    if (userInput !== "") {
       setLoadingSpinner({isLoading: true})
 
@@ -41,7 +41,9 @@ async function handleFormSubmit(e) {
 
       changeLocationInput.value = ""
    } else {
-      showToastCard({status: "isError", message: "Digite um nome de local antes de buscar."})
+      changeLocationButton.disabled = true
+      showToastCard({status: "isError", message: "Por favor, digite um local válido."})
+      setTimeout(() => changeLocationButton.disabled = false, 5000)
    }
 }
 
