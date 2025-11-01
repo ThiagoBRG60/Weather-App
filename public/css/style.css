@@ -264,10 +264,10 @@ section {
    animation: showSpinner 0.5s forwards, spinner 0.8s 0.5s infinite linear;
 }
 
-.weather-info-card form button.isLoading {
+.weather-info-card form button.isLoading, .weather-info-card form button.isDisabled {
    cursor: not-allowed;
 }
 
-.weather-info-card form button:hover, .weather-info-card form button.isLoading {
+.weather-info-card form button:hover, .weather-info-card form button.isLoading, .weather-info-card form button.isDisabled {
    opacity: 0.6;
 }

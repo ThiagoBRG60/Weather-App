@@ -1,6 +1,7 @@
 import { fetchData } from "./utils/fetchData.js"
 import { returnLocaleDate } from "./utils/returnLocaleDate.js"
 import { showToastCard } from "./components/toastCard.js"
+import { handleChangeLocationButton } from "./components/changeLocationButton.js"
 
 const dateLis = document.querySelectorAll(".weather-picture-card ul:nth-of-type(1) li:not(li:nth-of-type(3))")
 const locationPicture = document.querySelector(".location-picture")
@@ -9,7 +10,6 @@ const weatherInfoLis = document.querySelectorAll(".weather-picture-card ul:nth-o
 const weatherDetailsSpans = document.querySelectorAll(".weather-info-card ul li span")
 const changeLocationForm = document.querySelector("section form")
 const changeLocationInput = changeLocationForm.querySelector("input")
-const changeLocationButton = changeLocationForm.querySelector("button")
 
 changeLocationForm.addEventListener("submit", handleFormSubmit)
 
@@ -27,7 +27,7 @@ async function handleFormSubmit(e) {
    const userInput = changeLocationInput.value.trim()
    
    if (userInput !== "") {
-      setLoadingSpinner({isLoading: true})
+      handleChangeLocationButton({className: "isLoading", disabled: true})
 
       try {
          const {currentWeather, imageURL} = await getLocationData({locationText: userInput})
@@ -36,14 +36,14 @@ async function handleFormSubmit(e) {
       } catch (error) {
          showToastCard({status: "isError", message: "Houve um erro ao atualizar as informações. Tente novamente."})
       } finally {
-         setLoadingSpinner({isLoading: false})
+         handleChangeLocationButton({className: "", disabled: false})
       }
 
       changeLocationInput.value = ""
    } else {
-      changeLocationButton.disabled = true
       showToastCard({status: "isError", message: "Por favor, digite um local válido."})
-      setTimeout(() => changeLocationButton.disabled = false, 5000)
+      handleChangeLocationButton({className: "isDisabled", disabled: true})
+      setTimeout(() => handleChangeLocationButton({className: "", disabled: false}), 5000)
    }
 }
 
@@ -55,11 +55,6 @@ async function getLocationData({locationText, translationConfig}) {
    ])
 
    return {translatedText, currentWeather: current, imageURL: url}
-}
-
-function setLoadingSpinner({isLoading}) {
-   changeLocationButton.className = isLoading ? "isLoading" : ""
-   changeLocationButton.disabled = isLoading ? true : false
 }
 
 function updateWeatherCard({locationName, weatherInfo, locationImage}) {
