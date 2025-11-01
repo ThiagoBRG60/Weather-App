@@ -136,7 +136,7 @@ npm start
 ├── LICENSE
 ├── package-lock.json
 ├── package.json
-└── README.md (esse arquivo)
+└── README.md (arquivo atual)
 ```
 
 ## 🌍 Rotas Disponíveis
