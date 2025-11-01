@@ -21,7 +21,7 @@
 
 Uma aplicação web que fornece informações de clima em tempo real para qualquer local pesquisado. A interface é moderna e responsiva, com dois cards principais: um exibe informações básicas do clima junto com uma foto do local pesquisado, e o outro apresenta detalhes meteorológicos mais específicos como umidade, precipitação e velocidade do vento.
 
-A aplicação detecta automaticamente a localização do usuário através do IP para exibir as informações meteorológicas iniciais. Possui também tradução automática integrada para melhor experiência do usuário, convertendo as pesquisas de português para inglês antes de buscar os dados e imagens do local.
+A aplicação detecta automaticamente a localização do usuário através do IP para exibir as informações meteorológicas iniciais. Possui também tradução automática integrada para melhor experiência do usuário, convertendo as pesquisas de português para inglês antes de buscar os dados e imagens do local. Além disso, implementa um sistema de cache de imagens, garantindo carregamentos mais rápidos e evitando requisições desnecessárias.
 
 ## 🚀 Funcionalidades
 
@@ -29,6 +29,7 @@ A aplicação detecta automaticamente a localização do usuário através do IP
 - Pesquisa de condições do clima por localidade.
 - Tradução automática de português para inglês.
 - Exibição de imagens dinâmicas do local pesquisado.
+- Sistema de cache de imagens para carregamento otimizado.
 - Sistema de notificações toast com fila de execução.
 - Interface totalmente responsiva.
 
@@ -95,7 +96,7 @@ npm install
 
 3. Configure o arquivo .env conforme instruções acima.
 
-4. Inicie o servidor:
+4. Inicie o servidor (isso irá limpar/criar a pasta dist e minificar os arquivos estáticos):
 ```bash
 npm start
 ```
@@ -105,6 +106,11 @@ npm start
 ## 📁 Estrutura do Projeto
 
 ```
+├── dist/
+│   ├── temp/
+│   ├── index.html
+│   ├── index.min.js
+│   └── style.min.css
 ├── public/
 │   ├── css/
 │   ├── js/
@@ -122,6 +128,8 @@ npm start
 │   │   ├── fetchWeather/
 │   │   ├── imageSearch/
 │   │   └── translate/
+│   ├── scripts/
+│   │   └── handleDist.js
 │   └── server.js
 ├── .env
 ├── .gitignore
