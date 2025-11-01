@@ -43,7 +43,6 @@ async function handleFormSubmit(e) {
    } else {
       showToastCard({status: "isError", message: "Por favor, digite um local válido."})
       handleChangeLocationButton({className: "isDisabled", disabled: true})
-      setTimeout(() => handleChangeLocationButton({className: "", disabled: false}), 5000)
    }
 }
 
