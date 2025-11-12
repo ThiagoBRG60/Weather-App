@@ -11,7 +11,7 @@
       "clean": "node src/scripts/handleDist.js --delete",
       "build": "node src/scripts/handleDist.js --create && npm run build:html && npm run build:css && npm run build:js",
       "build:html": "npx html-minifier-terser public/index.html -o dist/index.html --collapse-whitespace --remove-comments",
-      "build:css": "npx clean-css-cli -o dist/style.min.css public/css/*.css",
+      "build:css": "npx clean-css-cli -o dist/style.min.css public/css/animations.css public/css/global.css public/css/style.css public/css/responsive.css",
       "build:js": "npx esbuild public/js/index.js --bundle --minify --outfile=dist/index.min.js --format=esm"
   },
   "dependencies": {

@@ -32,7 +32,7 @@ async function handleImageSearch(req, res, params) {
       } else {
          const [locationImage] = await imageSearch({query: decodedParam})
          const imageExtension = locationImage.image.match(/\.(jpg|jpeg|png|gif|webp|bmp|svg)(?=[?#\s]|$)/i)
-         const imagePath = await downloadLocationImage({imageUrl: locationImage.image, imageName: `${imageName}.${imageExtension[1]}`})
+         const imagePath = await downloadLocationImage({imageUrl: locationImage.image, tempFolder: tempFolder, imageName: `${imageName}.${imageExtension[1]}`})
          
          returnResponse({response: res, statusCode: 200, mimeType: "application/json", body: {url: imagePath}})
       }
