@@ -14,7 +14,7 @@
 </p>
 
 <div align="center">
-   <img src="https://i.imgur.com/Ch7Muj7.gif" alt="project-example-gif"/>
+   <img src="https://github.com/user-attachments/assets/730998bb-e20c-40c1-81dd-65f5d7c41bc3" alt="project-example-gif"/>
 </div>
 
 ## 📝 Descrição
